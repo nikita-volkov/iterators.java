@@ -6,19 +6,19 @@ import java.util.*;
 
 public class Test extends TestCase {
 
-  public void testAppendingIterator() {
+  public void testAppendIterator() {
     List<Integer> list1 = Arrays.asList(1, 2, 3, 4);
     List<Integer> list2 = Arrays.asList(5, 6, 7, 8);
     Iterator<Integer> iterator =
-      new AppendingIterator<>(list1.iterator(), list2.iterator());
+      new AppendIterator<>(list1.iterator(), list2.iterator());
 
     assertEquals(36, sum(iterator));
   }
 
-  public void testMappingIterator() {
+  public void testProjectIterator() {
     List<Integer> list = Arrays.asList(1, 2, 3, 4);
     Iterator<Integer> iterator =
-      new MappingIterator<>(
+      new ProjectIterator<>(
         list.iterator(),
         n -> n * 2
       );
@@ -26,10 +26,10 @@ public class Test extends TestCase {
     assertEquals(20, sum(iterator));
   }
 
-  public void testFilteringIterator() {
+  public void testFilterIterator() {
     List<Integer> list = Arrays.asList(1, 2, 3, 4);
     Iterator<Integer> iterator =
-      new FilteringIterator<>(
+      new FilterIterator<>(
         list.iterator(),
         n -> n % 2 == 0
       );

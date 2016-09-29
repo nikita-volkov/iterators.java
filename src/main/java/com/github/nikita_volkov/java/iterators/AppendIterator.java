@@ -2,7 +2,7 @@ package com.github.nikita_volkov.java.iterators;
 
 import java.util.Iterator;
 
-public final class AppendingIterator<a> implements Iterator<a> {
+public final class AppendIterator<a> implements Iterator<a> {
 
   private final Iterator<a> iterator1;
   private final Iterator<a> iterator2;
@@ -10,7 +10,7 @@ public final class AppendingIterator<a> implements Iterator<a> {
   private boolean hasNext;
   private a next;
 
-  public AppendingIterator(Iterator<a> iterator1, Iterator<a> iterator2) {
+  public AppendIterator(Iterator<a> iterator1, Iterator<a> iterator2) {
     this.iterator1 = iterator1;
     this.iterator2 = iterator2;
     this.hasNext = true;
