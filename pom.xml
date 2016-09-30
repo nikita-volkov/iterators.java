@@ -9,7 +9,7 @@
   <version>0.1</version>
 
   <name>iterators</name>
-  <description>Composable iterators</description>
+  <description>Composable iterators for Java</description>
   <url>http://github.com/nikita-volkov/iterators.java</url>
 
   <licenses>
