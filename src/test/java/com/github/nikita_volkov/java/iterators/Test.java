@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Test extends TestCase {
 
-  public void testAppendIterator() {
+  public void testAppendingIterator() {
     List<Integer> list1 = Arrays.asList(1, 2, 3, 4);
     List<Integer> list2 = Arrays.asList(5, 6, 7, 8);
     Iterator<Integer> iterator =
@@ -15,7 +15,7 @@ public class Test extends TestCase {
     assertEquals(36, sum(iterator));
   }
 
-  public void testProjectIterator() {
+  public void testMappingIterator() {
     List<Integer> list = Arrays.asList(1, 2, 3, 4);
     Iterator<Integer> iterator =
       new MappingIterator<>(
@@ -26,7 +26,7 @@ public class Test extends TestCase {
     assertEquals(20, sum(iterator));
   }
 
-  public void testFilterIterator() {
+  public void testFilteringIterator() {
     List<Integer> list = Arrays.asList(1, 2, 3, 4);
     Iterator<Integer> iterator =
       new FilteringIterator<>(
@@ -37,7 +37,7 @@ public class Test extends TestCase {
     assertEquals(6, sum(iterator));
   }
 
-  public void testUniqueIterator() {
+  public void testUniquifyingIterator() {
     List<Integer> list = Arrays.asList(1, 2, 2, 3, 4);
     Iterator<Integer> iterator =
       new UniquifyingIterator<>(list.iterator());
