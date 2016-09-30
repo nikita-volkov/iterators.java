@@ -3,14 +3,14 @@ package com.github.nikita_volkov.java.iterators;
 import java.util.Iterator;
 import java.util.function.Predicate;
 
-public final class FilterIterator<a> implements Iterator<a> {
+public final class FilteringIterator<a> implements Iterator<a> {
 
   private final Iterator<a> initialIterator;
   private final Predicate<a> predicate;
 
   private a next;
 
-  public FilterIterator(Iterator<a> initialIterator, Predicate<a> predicate) {
+  public FilteringIterator(Iterator<a> initialIterator, Predicate<a> predicate) {
     this.initialIterator = initialIterator;
     this.predicate = predicate;
     preiterate();

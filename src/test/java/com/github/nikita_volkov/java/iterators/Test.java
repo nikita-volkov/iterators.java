@@ -10,7 +10,7 @@ public class Test extends TestCase {
     List<Integer> list1 = Arrays.asList(1, 2, 3, 4);
     List<Integer> list2 = Arrays.asList(5, 6, 7, 8);
     Iterator<Integer> iterator =
-      new AppendIterator<>(list1.iterator(), list2.iterator());
+      new AppendingIterator<>(list1.iterator(), list2.iterator());
 
     assertEquals(36, sum(iterator));
   }
@@ -18,7 +18,7 @@ public class Test extends TestCase {
   public void testProjectIterator() {
     List<Integer> list = Arrays.asList(1, 2, 3, 4);
     Iterator<Integer> iterator =
-      new ProjectIterator<>(
+      new MappingIterator<>(
         list.iterator(),
         n -> n * 2
       );
@@ -29,7 +29,7 @@ public class Test extends TestCase {
   public void testFilterIterator() {
     List<Integer> list = Arrays.asList(1, 2, 3, 4);
     Iterator<Integer> iterator =
-      new FilterIterator<>(
+      new FilteringIterator<>(
         list.iterator(),
         n -> n % 2 == 0
       );
@@ -40,7 +40,7 @@ public class Test extends TestCase {
   public void testUniqueIterator() {
     List<Integer> list = Arrays.asList(1, 2, 2, 3, 4);
     Iterator<Integer> iterator =
-      new UniqueIterator<>(list.iterator());
+      new UniquifyingIterator<>(list.iterator());
 
     assertEquals(10, sum(iterator));
   }
