@@ -18,11 +18,14 @@ public final class FlatmappingIterator<a, b> implements Iterator<b> {
   }
 
   private void preiterate() {
+    while ((nextIterator == null || !nextIterator.hasNext()) && initialIterator.hasNext()) {
+      nextIterator = projection.apply(initialIterator.next());
+      if (!nextIterator.hasNext()) {
+        nextIterator = null;
+      }
+    }
     if (nextIterator != null && nextIterator.hasNext()) {
       next = nextIterator.next();
-    } else if (initialIterator.hasNext()) {
-      nextIterator = projection.apply(initialIterator.next());
-      preiterate();
     } else {
       next = null;
     }
