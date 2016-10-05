@@ -15,11 +15,14 @@ public final class JoiningIterator<a> implements Iterator<a> {
   }
 
   private void preiterate() {
+    while ((nextIterator == null || !nextIterator.hasNext()) && initialIterator.hasNext()) {
+      nextIterator = initialIterator.next();
+      if (!nextIterator.hasNext()) {
+        nextIterator = null;
+      }
+    }
     if (nextIterator != null && nextIterator.hasNext()) {
       next = nextIterator.next();
-    } else if (initialIterator.hasNext()) {
-      nextIterator = initialIterator.next();
-      preiterate();
     } else {
       next = null;
     }
