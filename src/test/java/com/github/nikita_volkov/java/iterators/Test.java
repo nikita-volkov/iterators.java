@@ -6,6 +6,19 @@ import java.util.*;
 
 public class Test extends TestCase {
 
+  public void testJoiningIterator() {
+    Iterator<Integer> iterator =
+      new JoiningIterator<>(
+        new ArrayIterator<>(
+          new ArrayIterator<>(1),
+          new ArrayIterator<>(2, 3),
+          new SingletonIterator<>(4)
+        )
+      );
+
+    assertEquals(10, sum(iterator));
+  }
+
   public void testAppendingIterator() {
     List<Integer> list1 = Arrays.asList(1, 2, 3, 4);
     List<Integer> list2 = Arrays.asList(5, 6, 7, 8);
