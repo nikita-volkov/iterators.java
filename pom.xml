@@ -6,7 +6,7 @@
 
   <groupId>com.github.nikita-volkov.java</groupId>
   <artifactId>iterators</artifactId>
-  <version>0.1.4-SNAPSHOT</version>
+  <version>0.1.4</version>
 
   <name>iterators</name>
   <description>Composable iterators for Java</description>
