@@ -4,13 +4,13 @@ import java.util.Iterator;
 
 public final class AppendingIterator<a> implements Iterator<a> {
 
-  private final Iterator<a> iterator1;
-  private final Iterator<a> iterator2;
+  private final Iterator<? extends a> iterator1;
+  private final Iterator<? extends a> iterator2;
 
   private boolean hasNext;
   private a next;
 
-  public AppendingIterator(Iterator<a> iterator1, Iterator<a> iterator2) {
+  public AppendingIterator(Iterator<? extends a> iterator1, Iterator<? extends a> iterator2) {
     this.iterator1 = iterator1;
     this.iterator2 = iterator2;
     this.hasNext = true;
