@@ -2,44 +2,38 @@ package com.github.nikita_volkov.java.iterators;
 
 import java.util.*;
 
+/**
+ * This implementation is optimized for the standard use of Iterators, i.e.,
+ * when the @hasNext@ method is called once before @next@ always.
+ */
 public final class UniquifyingIterator<a> implements Iterator<a> {
 
   private final Iterator<a> baseIterator;
   private final Set<a> seenSet;
-
-  private boolean hasNext;
   private a next;
 
   public UniquifyingIterator(Iterator<a> baseIterator) {
     this.baseIterator = baseIterator;
-    this.seenSet = new HashSet<a>();
-    this.hasNext = true;
-    preiterate();
-  }
-
-  private void preiterate() {
-    if (baseIterator.hasNext()) {
-      next = baseIterator.next();
-      if (seenSet.contains(next)) {
-        preiterate();
-      } else {
-        seenSet.add(next);
-      }
-    } else {
-      hasNext = false;
-      next = null;
-    }
+    this.seenSet = new HashSet<>();
   }
 
   @Override
   public boolean hasNext() {
-    return hasNext;
+    do {
+      if (baseIterator.hasNext()) {
+        next = baseIterator.next();
+      } else {
+        next = null;
+        return false;
+      }
+    } while (seenSet.contains(next));
+    seenSet.add(next);
+    return true;
   }
 
   @Override
   public a next() {
-    a result = next;
-    preiterate();
-    return result;
+    return next;
   }
+
 }
