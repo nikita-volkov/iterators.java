@@ -25,12 +25,10 @@ public final class MultimapIterator<key, value, valueIterable extends Iterable<v
     }
   }
 
-  @Override
   public boolean hasNext() {
     return currentDeeperIterator.hasNext();
   }
 
-  @Override
   public Entry<key, value> next() {
     key key = currentKey;
     value value = currentDeeperIterator.next();

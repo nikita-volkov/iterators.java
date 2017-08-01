@@ -1,29 +1,26 @@
 package com.github.nikita_volkov.java.iterators;
 
-import java.util.Iterator;
+import java.util.*;
 
-public final class SingletonIterator<a> implements Iterator<a> {
+public final class SingletonIterator<element> implements Iterator<element> {
 
-  private a a;
-  private boolean hasNext;
+  private element next;
 
-  public SingletonIterator(a a) {
-    this.a = a;
-    hasNext = true;
+  public SingletonIterator(element next) {
+    this.next = next;
   }
 
-  @Override
   public boolean hasNext() {
-    return hasNext;
+    return next != null;
   }
 
-  @Override
-  public a next() {
-    if (hasNext) {
-      hasNext = false;
-      return a;
+  public element next() {
+    if (next != null) {
+      element element = next;
+      next = null;
+      return element;
     } else {
-      return null;
+      throw new NoSuchElementException();
     }
   }
 

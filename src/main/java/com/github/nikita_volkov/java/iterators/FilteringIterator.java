@@ -1,6 +1,6 @@
 package com.github.nikita_volkov.java.iterators;
 
-import java.util.Iterator;
+import java.util.*;
 import java.util.function.Predicate;
 
 public final class FilteringIterator<a> implements Iterator<a> {
@@ -28,13 +28,12 @@ public final class FilteringIterator<a> implements Iterator<a> {
     }
   }
 
-  @Override
   public boolean hasNext() {
     return next != null;
   }
 
-  @Override
   public a next() {
+    if (next == null) throw new NoSuchElementException();
     a result = next;
     preiterate();
     return result;

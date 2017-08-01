@@ -1,22 +1,22 @@
 package com.github.nikita_volkov.java.iterators;
 
-import java.util.Iterator;
+import java.util.*;
 
 public final class JoiningIterator<a> implements Iterator<a> {
 
-  private final Iterator<Iterator<a>> initialIterator;
+  private final Iterator<Iterator<a>> iteratorIterator;
 
   private Iterator<a> nextIterator;
   private a next;
 
-  public JoiningIterator(Iterator<Iterator<a>> initialIterator) {
-    this.initialIterator = initialIterator;
-    preiterate();
+  public JoiningIterator(Iterator<Iterator<a>> iteratorIterator) {
+    this.iteratorIterator = iteratorIterator;
+    advance();
   }
 
-  private void preiterate() {
-    while ((nextIterator == null || !nextIterator.hasNext()) && initialIterator.hasNext()) {
-      nextIterator = initialIterator.next();
+  private void advance() {
+    while ((nextIterator == null || !nextIterator.hasNext()) && iteratorIterator.hasNext()) {
+      nextIterator = iteratorIterator.next();
       if (!nextIterator.hasNext()) {
         nextIterator = null;
       }
@@ -28,15 +28,14 @@ public final class JoiningIterator<a> implements Iterator<a> {
     }
   }
 
-  @Override
   public boolean hasNext() {
     return next != null;
   }
 
-  @Override
   public a next() {
+    if (next == null) throw new NoSuchElementException();
     a result = next;
-    preiterate();
+    advance();
     return result;
   }
 

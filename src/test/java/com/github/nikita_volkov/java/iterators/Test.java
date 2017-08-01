@@ -4,6 +4,8 @@ import junit.framework.TestCase;
 
 import java.util.*;
 
+import static com.github.nikita_volkov.java.iterators.Reducers.sum;
+
 public class Test extends TestCase {
 
   public void testJoiningIterator() {
@@ -50,20 +52,12 @@ public class Test extends TestCase {
     assertEquals(6, sum(iterator));
   }
 
-  public void testUniquifyingIterator() {
+  public void testUniqueIterator() {
     List<Integer> list = Arrays.asList(1, 2, 2, 3, 4);
     Iterator<Integer> iterator =
-      new UniquifyingIterator<>(list.iterator());
+      new UniqueIterator<>(list.iterator());
 
     assertEquals(10, sum(iterator));
-  }
-
-  private static int sum(Iterator<Integer> iterator) {
-    int sum = 0;
-    while (iterator.hasNext()) {
-      sum += iterator.next();
-    }
-    return sum;
   }
 
 }

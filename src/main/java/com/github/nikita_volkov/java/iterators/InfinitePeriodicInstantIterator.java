@@ -1,7 +1,7 @@
 package com.github.nikita_volkov.java.iterators;
 
 import java.time.*;
-import java.time.temporal.*;
+import java.time.temporal.ChronoUnit;
 import java.util.Iterator;
 
 /**
@@ -30,12 +30,10 @@ public final class InfinitePeriodicInstantIterator implements Iterator<Instant> 
     this(step, Instant.now());
   }
 
-  @Override
   public boolean hasNext() {
     return true;
   }
 
-  @Override
   public Instant next() {
     Instant now = Instant.now();
     if (now.isAfter(next)) {

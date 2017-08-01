@@ -13,12 +13,10 @@ public final class MappingIterator<a, b> implements Iterator<b> {
     this.projection = projection;
   }
 
-  @Override
   public boolean hasNext() {
     return initialIterator.hasNext();
   }
 
-  @Override
   public b next() {
     return projection.apply(initialIterator.next());
   }

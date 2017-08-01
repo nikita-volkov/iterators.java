@@ -2,14 +2,12 @@ package com.github.nikita_volkov.java.iterators;
 
 import java.util.*;
 
-public final class EmptyIterator<a> implements Iterator<a> {
-  @Override
+public final class EmptyIterator<element> implements Iterator<element> {
   public boolean hasNext() {
     return false;
   }
 
-  @Override
-  public a next() {
+  public element next() {
     throw new NoSuchElementException();
   }
 }

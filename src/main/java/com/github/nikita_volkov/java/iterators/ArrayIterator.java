@@ -12,12 +12,10 @@ public final class ArrayIterator<a> implements Iterator<a> {
     index = 0;
   }
 
-  @Override
   public boolean hasNext() {
     return index < array.length;
   }
 
-  @Override
   public a next() {
     return array[index++];
   }

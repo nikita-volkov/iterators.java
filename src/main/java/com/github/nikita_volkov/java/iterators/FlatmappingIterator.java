@@ -1,6 +1,6 @@
 package com.github.nikita_volkov.java.iterators;
 
-import java.util.Iterator;
+import java.util.*;
 import java.util.function.Function;
 
 public final class FlatmappingIterator<a, b> implements Iterator<b> {
@@ -14,10 +14,10 @@ public final class FlatmappingIterator<a, b> implements Iterator<b> {
   public FlatmappingIterator(Iterator<a> initialIterator, Function<a, Iterator<b>> projection) {
     this.initialIterator = initialIterator;
     this.projection = projection;
-    preiterate();
+    advance();
   }
 
-  private void preiterate() {
+  private void advance() {
     while ((nextIterator == null || !nextIterator.hasNext()) && initialIterator.hasNext()) {
       nextIterator = projection.apply(initialIterator.next());
       if (!nextIterator.hasNext()) {
@@ -31,15 +31,14 @@ public final class FlatmappingIterator<a, b> implements Iterator<b> {
     }
   }
 
-  @Override
   public boolean hasNext() {
     return next != null;
   }
 
-  @Override
   public b next() {
+    if (next == null) throw new NoSuchElementException();
     b result = next;
-    preiterate();
+    advance();
     return result;
   }
 
