@@ -37,6 +37,13 @@ public class RichTest extends TestCase {
     );
   }
 
+  public void testInterleave() {
+    assertListEquals(Arrays.asList(1, 1, 2, 3, 4, 7, 8, 8, 9, 12, 13, 16, 17, 19),
+      RichIterator.array(1, 2, 7, 8, 12, 17)
+        .interleave(RichIterator.array(1, 3, 4, 8, 9, 13, 16, 19), (left, right) -> left < right ? 1 : left == right ? 0 : -1)
+    );
+  }
+
   private <element> void assertListEquals(List<element> expected, Iterator<element> iterator) {
     Assert.assertEquals(expected, Reducers.arrayList(iterator));
   }
