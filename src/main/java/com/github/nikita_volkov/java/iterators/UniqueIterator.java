@@ -6,7 +6,7 @@ import java.util.*;
  * This implementation is optimized for the standard use of Iterators, i.e.,
  * when the @hasNext@ method is called once before @next@ always.
  */
-public final class UniqueIterator<a> implements Iterator<a> {
+public class UniqueIterator<a> implements Iterator<a> {
 
   private final Iterator<a> baseIterator;
   private final Set<a> seenSet;

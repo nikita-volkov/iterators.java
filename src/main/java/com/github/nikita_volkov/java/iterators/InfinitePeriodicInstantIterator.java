@@ -12,7 +12,7 @@ import java.util.Iterator;
  * <p>
  * Useful for implementing the periodic daemon jobs.
  */
-public final class InfinitePeriodicInstantIterator implements Iterator<Instant> {
+public class InfinitePeriodicInstantIterator implements Iterator<Instant> {
 
   private final Duration step;
 

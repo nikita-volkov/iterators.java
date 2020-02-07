@@ -3,7 +3,7 @@ package com.github.nikita_volkov.java.iterators;
 import java.util.Iterator;
 import java.util.function.Function;
 
-public final class MappingIterator<a, b> implements Iterator<b> {
+public class MappingIterator<a, b> implements Iterator<b> {
 
   private final Iterator<a> initialIterator;
   private final Function<a, b> projection;

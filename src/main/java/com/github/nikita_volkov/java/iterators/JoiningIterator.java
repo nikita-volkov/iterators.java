@@ -2,7 +2,7 @@ package com.github.nikita_volkov.java.iterators;
 
 import java.util.*;
 
-public final class JoiningIterator<a> implements Iterator<a> {
+public class JoiningIterator<a> implements Iterator<a> {
 
   private final Iterator<Iterator<a>> iteratorIterator;
 

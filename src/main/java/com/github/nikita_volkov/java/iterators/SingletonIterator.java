@@ -2,7 +2,7 @@ package com.github.nikita_volkov.java.iterators;
 
 import java.util.*;
 
-public final class SingletonIterator<element> implements Iterator<element> {
+public class SingletonIterator<element> implements Iterator<element> {
 
   private element next;
 

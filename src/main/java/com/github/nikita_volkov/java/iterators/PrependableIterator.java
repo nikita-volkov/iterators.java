@@ -2,7 +2,7 @@ package com.github.nikita_volkov.java.iterators;
 
 import java.util.*;
 
-public final class PrependableIterator<element> implements Iterator<element> {
+public class PrependableIterator<element> implements Iterator<element> {
 
   private final Iterator<element> originalIterator;
   private final Deque<element> priorQueue = new LinkedList<>();

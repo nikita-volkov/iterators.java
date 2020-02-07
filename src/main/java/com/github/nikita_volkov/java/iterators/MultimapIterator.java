@@ -2,7 +2,7 @@ package com.github.nikita_volkov.java.iterators;
 
 import java.util.*;
 
-public final class MultimapIterator<key, value, valueIterable extends Iterable<value>> implements Iterator<MultimapIterator.Entry<key, value>> {
+public class MultimapIterator<key, value, valueIterable extends Iterable<value>> implements Iterator<MultimapIterator.Entry<key, value>> {
 
   private final Iterator<Map.Entry<key, valueIterable>> iterator;
   private key currentKey;

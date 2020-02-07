@@ -3,7 +3,7 @@ package com.github.nikita_volkov.java.iterators;
 import java.io.*;
 import java.util.*;
 
-public final class InputStreamByteArraysIterator implements Iterator<byte[]> {
+public class InputStreamByteArraysIterator implements Iterator<byte[]> {
 
   private final InputStream stream;
   private IOException exception;

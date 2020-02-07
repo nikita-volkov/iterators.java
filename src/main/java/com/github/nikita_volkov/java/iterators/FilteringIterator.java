@@ -3,7 +3,7 @@ package com.github.nikita_volkov.java.iterators;
 import java.util.*;
 import java.util.function.Predicate;
 
-public final class FilteringIterator<a> implements Iterator<a> {
+public class FilteringIterator<a> implements Iterator<a> {
 
   private final Iterator<a> initialIterator;
   private final Predicate<a> predicate;

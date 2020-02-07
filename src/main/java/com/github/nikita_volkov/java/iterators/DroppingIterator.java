@@ -2,7 +2,7 @@ package com.github.nikita_volkov.java.iterators;
 
 import java.util.Iterator;
 
-public final class DroppingIterator<input> implements Iterator<input> {
+public class DroppingIterator<input> implements Iterator<input> {
   private final Iterator<input> iterator;
 
   public DroppingIterator(Iterator<input> iterator, long amount) {

@@ -2,7 +2,7 @@ package com.github.nikita_volkov.java.iterators;
 
 import java.util.*;
 
-public final class TakingIterator<input> implements Iterator<input> {
+public class TakingIterator<input> implements Iterator<input> {
   private final Iterator<input> iterator;
   private long counter;
 

@@ -2,7 +2,7 @@ package com.github.nikita_volkov.java.iterators;
 
 import java.util.Iterator;
 
-public final class LongSteppingIterator implements Iterator<Long> {
+public class LongSteppingIterator implements Iterator<Long> {
 
   private final long step;
   private final long max;

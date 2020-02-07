@@ -2,7 +2,7 @@ package com.github.nikita_volkov.java.iterators;
 
 import java.util.*;
 
-public final class InterleavingIterator<element> implements Iterator<element> {
+public class InterleavingIterator<element> implements Iterator<element> {
 
   private final PrependableIterator<element> leftIterator;
   private final PrependableIterator<element> rightIterator;
